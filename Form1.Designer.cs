@@ -64,6 +64,7 @@
             SelectGameCombo.Name = "SelectGameCombo";
             SelectGameCombo.Size = new Size(121, 23);
             SelectGameCombo.TabIndex = 1;
+            SelectGameCombo.SelectedIndexChanged += SelectGameCombo_SelectedIndexChanged;
             // 
             // SelectGameButton
             // 
