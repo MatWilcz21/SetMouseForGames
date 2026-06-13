@@ -45,6 +45,7 @@
             MainSpinValueHolder = new Label();
             FirstPersonAimPx = new Label();
             InGameCursorPx = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // UpdateMouseInfo
@@ -207,11 +208,22 @@
             InGameCursorPx.TabIndex = 19;
             InGameCursorPx.Text = "0";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(624, 309);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 20;
+            label1.Text = "label1";
+            label1.Click += label1_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(863, 508);
+            Controls.Add(label1);
             Controls.Add(InGameCursorPx);
             Controls.Add(FirstPersonAimPx);
             Controls.Add(MainSpinValueHolder);
@@ -254,5 +266,6 @@
         private Label MainSpinValueHolder;
         private Label FirstPersonAimPx;
         private Label InGameCursorPx;
+        private Label label1;
     }
 }

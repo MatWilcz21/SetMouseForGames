@@ -204,4 +204,8 @@ public partial class Form1 : Form
     #endregion
 
 
+    private void label1_Click_1(object sender, EventArgs e)
+    {
+
+    }
 }
