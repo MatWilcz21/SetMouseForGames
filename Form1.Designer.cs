@@ -46,6 +46,7 @@
             FirstPersonAimPx = new Label();
             InGameCursorPx = new Label();
             label1 = new Label();
+            userControl11 = new UserControl1();
             SuspendLayout();
             // 
             // UpdateMouseInfo
@@ -218,11 +219,19 @@
             label1.Text = "label1";
             label1.Click += label1_Click_1;
             // 
+            // userControl11
+            // 
+            userControl11.Location = new Point(442, 325);
+            userControl11.Name = "userControl11";
+            userControl11.Size = new Size(150, 150);
+            userControl11.TabIndex = 21;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(863, 508);
+            Controls.Add(userControl11);
             Controls.Add(label1);
             Controls.Add(InGameCursorPx);
             Controls.Add(FirstPersonAimPx);
@@ -267,5 +276,6 @@
         private Label FirstPersonAimPx;
         private Label InGameCursorPx;
         private Label label1;
+        private UserControl1 userControl11;
     }
 }
