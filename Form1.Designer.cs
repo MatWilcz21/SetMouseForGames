@@ -43,12 +43,10 @@
             // 
             // mouseInfouc1
             // 
-            SelectGameCombo.FormattingEnabled = true;
-            SelectGameCombo.Location = new Point(12, 81);
-            SelectGameCombo.Name = "SelectGameCombo";
-            SelectGameCombo.Size = new Size(121, 23);
-            SelectGameCombo.TabIndex = 1;
-            SelectGameCombo.SelectedIndexChanged += SelectGameCombo_SelectedIndexChanged;
+            mouseInfouc1.Location = new Point(208, 160);
+            mouseInfouc1.Name = "mouseInfouc1";
+            mouseInfouc1.Size = new Size(277, 119);
+            mouseInfouc1.TabIndex = 23;
             // 
             // gameDatauc1
             // 

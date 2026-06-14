@@ -32,5 +32,6 @@ public partial class MouseInfoUC : UserControl
     private void SetMouseDpi_Click(object sender, EventArgs e)
     {
         form1.mainLogic.WindowsMouseSettings.GetMouseDPI(MouseDPITextBox.Text);
+        UpdateMouseInfoLabel();
     }
 }

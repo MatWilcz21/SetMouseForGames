@@ -9,6 +9,7 @@ public partial class AddAndSelectGameUC : UserControl
     public AddAndSelectGameUC()
     {
         InitializeComponent();
+        SelectGameCombo.SelectedIndexChanged += SelectedGameFromComboChanged;
     }
 
     private void AddAndSelectGameUC_Load(object sender, EventArgs e)
@@ -22,7 +23,8 @@ public partial class AddAndSelectGameUC : UserControl
         EnterGameNameTextBox.Text = null;
     }
 
-    private void SelectGameButton_Click(object sender, EventArgs e)
+
+    private void SelectedGameFromComboChanged(object sender, EventArgs e)
     {
         form1.mainLogic.GamesManager.SelectGame();
     }

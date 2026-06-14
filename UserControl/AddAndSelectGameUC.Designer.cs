@@ -31,14 +31,13 @@
             DeleteGameFromList = new Button();
             EnterGameNameTextBox = new TextBox();
             CreateNewGameButton = new Button();
-            SelectGameButton = new Button();
             SelectGameCombo = new ComboBox();
             SelectedGameNameLabel = new Label();
             SuspendLayout();
             // 
             // DeleteGameFromList
             // 
-            DeleteGameFromList.Location = new Point(26, 79);
+            DeleteGameFromList.Location = new Point(27, 20);
             DeleteGameFromList.Name = "DeleteGameFromList";
             DeleteGameFromList.Size = new Size(120, 23);
             DeleteGameFromList.TabIndex = 10;
@@ -62,16 +61,6 @@
             CreateNewGameButton.Text = "Add game";
             CreateNewGameButton.UseVisualStyleBackColor = true;
             CreateNewGameButton.Click += CreateNewGameButton_Click;
-            // 
-            // SelectGameButton
-            // 
-            SelectGameButton.Location = new Point(27, 20);
-            SelectGameButton.Name = "SelectGameButton";
-            SelectGameButton.Size = new Size(120, 23);
-            SelectGameButton.TabIndex = 7;
-            SelectGameButton.Text = "Select Game";
-            SelectGameButton.UseVisualStyleBackColor = true;
-            SelectGameButton.Click += SelectGameButton_Click;
             // 
             // SelectGameCombo
             // 
@@ -99,7 +88,6 @@
             Controls.Add(DeleteGameFromList);
             Controls.Add(EnterGameNameTextBox);
             Controls.Add(CreateNewGameButton);
-            Controls.Add(SelectGameButton);
             Controls.Add(SelectGameCombo);
             Name = "AddAndSelectGameUC";
             Size = new Size(317, 142);
@@ -113,7 +101,6 @@
         private Button DeleteGameFromList;
         private TextBox EnterGameNameTextBox;
         private Button CreateNewGameButton;
-        private Button SelectGameButton;
         private ComboBox SelectGameCombo;
         private Label SelectedGameNameLabel;
     }

@@ -68,39 +68,8 @@ public partial class Form1 : Form
 
     }
 
-    private void CopyFromInGameCursorPx_Click(object sender, EventArgs e)
-    {
-        if (mainLogic.GamesManager.isSelectedGameNull()) return;
-
-        mainLogic.SpinValue = mainLogic.GamesManager.SelectedGameAimSettings.InGameCursorPx;
-        UpdateMainValueHolder();
-    }
-
-    private void CopyFromFirstPersonAimPx_Click(object sender, EventArgs e)
-    {
-        if (mainLogic.GamesManager.isSelectedGameNull()) return;
-
-        mainLogic.SpinValue = mainLogic.GamesManager.SelectedGameAimSettings.FirstPersonAimPx;
-        UpdateMainValueHolder();
-    }
-
-    #endregion
-
-    #region get data from form
-
-    internal string GetSelectGameComboText()
-    {
-        return SelectGameCombo.Text;
-    }
-
-    #endregion
 
     #region set data to form
-
-    internal void SetGameNameLabel(string gameName)
-    {
-        SelectedGameNameLabel.Text = $"Selected game profile: {gameName}";
-    }
 
     #endregion
 

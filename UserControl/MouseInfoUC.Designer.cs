@@ -79,7 +79,7 @@
             Controls.Add(MouseInfoLabelX);
             Controls.Add(UpdateMouseInfo);
             Name = "MouseInfoUC";
-            Size = new Size(201, 119);
+            Size = new Size(278, 119);
             ResumeLayout(false);
             PerformLayout();
         }
