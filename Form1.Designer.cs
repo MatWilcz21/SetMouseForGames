@@ -28,30 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            UpdateMouseInfo = new Button();
             PasteValueToFirstPersonAimPx = new Button();
             PasteValueToInGameCursorPx = new Button();
             CopyFromFirstPersonAimPx = new Button();
             CopyFromInGameCursorPx = new Button();
-            MouseInfoLabel = new Label();
-            MouseDPITextBox = new TextBox();
-            SetMouseDpi = new Button();
             SelectedGameNameLabel = new Label();
             MainSpinValueHolder = new Label();
             FirstPersonAimPx = new Label();
             InGameCursorPx = new Label();
             addAndSelectGameuc1 = new AddAndSelectGameUC();
+            mouseInfouc1 = new MouseInfoUC();
             SuspendLayout();
-            // 
-            // UpdateMouseInfo
-            // 
-            UpdateMouseInfo.Location = new Point(267, 275);
-            UpdateMouseInfo.Name = "UpdateMouseInfo";
-            UpdateMouseInfo.Size = new Size(75, 23);
-            UpdateMouseInfo.TabIndex = 0;
-            UpdateMouseInfo.Text = "Update mouse";
-            UpdateMouseInfo.UseVisualStyleBackColor = true;
-            UpdateMouseInfo.Click += button1_Click;
             // 
             // PasteValueToFirstPersonAimPx
             // 
@@ -92,33 +79,6 @@
             CopyFromInGameCursorPx.Text = ">";
             CopyFromInGameCursorPx.UseVisualStyleBackColor = true;
             CopyFromInGameCursorPx.Click += CopyFromInGameCursorPx_Click;
-            // 
-            // MouseInfoLabel
-            // 
-            MouseInfoLabel.AutoSize = true;
-            MouseInfoLabel.Location = new Point(369, 273);
-            MouseInfoLabel.Name = "MouseInfoLabel";
-            MouseInfoLabel.Size = new Size(38, 15);
-            MouseInfoLabel.TabIndex = 13;
-            MouseInfoLabel.Text = "label1";
-            MouseInfoLabel.Click += label1_Click;
-            // 
-            // MouseDPITextBox
-            // 
-            MouseDPITextBox.Location = new Point(348, 247);
-            MouseDPITextBox.Name = "MouseDPITextBox";
-            MouseDPITextBox.Size = new Size(100, 23);
-            MouseDPITextBox.TabIndex = 14;
-            // 
-            // SetMouseDpi
-            // 
-            SetMouseDpi.Location = new Point(267, 246);
-            SetMouseDpi.Name = "SetMouseDpi";
-            SetMouseDpi.Size = new Size(75, 23);
-            SetMouseDpi.TabIndex = 15;
-            SetMouseDpi.Text = "Mouse DPI";
-            SetMouseDpi.UseVisualStyleBackColor = true;
-            SetMouseDpi.Click += SetMouseDpi_Click;
             // 
             // SelectedGameNameLabel
             // 
@@ -165,24 +125,28 @@
             addAndSelectGameuc1.Size = new Size(317, 142);
             addAndSelectGameuc1.TabIndex = 20;
             // 
+            // mouseInfouc1
+            // 
+            mouseInfouc1.Location = new Point(599, 361);
+            mouseInfouc1.Name = "mouseInfouc1";
+            mouseInfouc1.Size = new Size(201, 119);
+            mouseInfouc1.TabIndex = 21;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(863, 508);
+            Controls.Add(mouseInfouc1);
             Controls.Add(addAndSelectGameuc1);
             Controls.Add(InGameCursorPx);
             Controls.Add(FirstPersonAimPx);
             Controls.Add(MainSpinValueHolder);
             Controls.Add(SelectedGameNameLabel);
-            Controls.Add(SetMouseDpi);
-            Controls.Add(MouseDPITextBox);
-            Controls.Add(MouseInfoLabel);
             Controls.Add(CopyFromInGameCursorPx);
             Controls.Add(CopyFromFirstPersonAimPx);
             Controls.Add(PasteValueToInGameCursorPx);
             Controls.Add(PasteValueToFirstPersonAimPx);
-            Controls.Add(UpdateMouseInfo);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -190,19 +154,15 @@
         }
 
         #endregion
-
-        private Button UpdateMouseInfo;
         private Button PasteValueToFirstPersonAimPx;
         private Button PasteValueToInGameCursorPx;
         private Button CopyFromFirstPersonAimPx;
         private Button CopyFromInGameCursorPx;
-        private Label MouseInfoLabel;
-        private TextBox MouseDPITextBox;
-        private Button SetMouseDpi;
         private Label SelectedGameNameLabel;
         private Label MainSpinValueHolder;
         private Label FirstPersonAimPx;
         private Label InGameCursorPx;
         public AddAndSelectGameUC addAndSelectGameuc1;
+        public MouseInfoUC mouseInfouc1;
     }
 }

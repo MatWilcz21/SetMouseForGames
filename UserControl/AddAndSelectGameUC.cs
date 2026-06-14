@@ -11,13 +11,6 @@ public partial class AddAndSelectGameUC : UserControl
         InitializeComponent();
     }
 
-    public AddAndSelectGameUC(Form1 _form1)
-    {
-        InitializeComponent();
-        form1 = _form1;
-        MessageBox.Show(form1.GetType().ToString());
-    }
-
     private void AddAndSelectGameUC_Load(object sender, EventArgs e)
     {
 

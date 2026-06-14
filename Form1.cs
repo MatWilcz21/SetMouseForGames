@@ -11,18 +11,19 @@ public partial class Form1 : Form
         mainLogic.WindowsMouseSettings = new WindowsMouseSettings(this);
         InitializeComponent();
         InitOtherForms();
-        UpdateMouseInfoLabel();
 
         InitOtherForms();
 
 
 
         new LoadAppDataX(mainLogic);
+        mouseInfouc1.UpdateMouseInfoLabel();
     }
 
     void InitOtherForms()
     {
         addAndSelectGameuc1.form1 = this;
+        mouseInfouc1.form1 = this;
     }
 
     protected override void OnHandleCreated(EventArgs e)
@@ -75,31 +76,10 @@ public partial class Form1 : Form
         InGameCursorPx.Text = mainLogic.GamesManager.SelectedGameAimSettings.InGameCursorPx.ToString();
     }
 
-    internal void UpdateMouseInfoLabel()
-    {
-
-        //mainLogic.WindowsMouseSettings = new WindowsMouseSettings(this);
-
-        string messageToPrint = string.Concat($"Mouse speed: {mainLogic.WindowsMouseSettings.WindowsSettingsMouseSpeed.ToString()}/20\n",
-            $"Enhanced precision: {mainLogic.WindowsMouseSettings.IsWindowsEnhancePointerPrecisionOn.ToString()}\n",
-            $"Scroll speed: {mainLogic.WindowsMouseSettings.WindowsScrollSpeed}lines\n",
-            $"Driver DPI: {mainLogic.WindowsMouseSettings.MouseDriverDPI.ToString()}");
-
-
-        MouseInfoLabel.Text = messageToPrint;
-    }
 
     #region buttons
 
-    private void button1_Click(object sender, EventArgs e)
-    {
-        UpdateMouseInfoLabel();
-    }
 
-    private void SetMouseDpi_Click(object sender, EventArgs e)
-    {
-        mainLogic.WindowsMouseSettings.GetMouseDPI(MouseDPITextBox.Text);
-    }
 
     #endregion
 
@@ -181,28 +161,4 @@ public partial class Form1 : Form
     #endregion
 
 
-    private void label1_Click_1(object sender, EventArgs e)
-    {
-
-    }
-
-    private void userControl21_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void addAndSelectGameuc1_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void addAndSelectGameuc2_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void userControl22_Load(object sender, EventArgs e)
-    {
-
-    }
 }

@@ -110,7 +110,7 @@
     }
 }
 
-internal class aaaa
+internal class AAaa
 {
     internal static bool IsAnyGameSelected()
     {
