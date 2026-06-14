@@ -1,6 +1,6 @@
 ﻿namespace SetMouseForGames
 {
-    partial class UserControl1
+    partial class UserControl2
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,31 +29,41 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(22, 29);
+            button1.Location = new Point(17, 11);
             button1.Name = "button1";
-            button1.Size = new Size(104, 42);
+            button1.Size = new Size(109, 39);
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // UserControl1
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(132, 27);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 1;
+            // 
+            // UserControl2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(comboBox1);
             Controls.Add(button1);
-            Name = "UserControl1";
-            Load += UserControl1_Load;
+            Name = "UserControl2";
+            Size = new Size(283, 253);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button button1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ComboBox comboBox1;
     }
 }

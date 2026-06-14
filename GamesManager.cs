@@ -15,7 +15,7 @@
             set
             {
                 gamesAimSettingsList = value;
-                form1_.RefreshGamesComboBox();
+                form1_.addAndSelectGameuc1.RefreshGamesComboBox();
             }
         }
         internal GamesAimSettings SelectedGameAimSettings { get; set; } = null!;
@@ -35,12 +35,12 @@
             if (gamesAimSettingsList is null) gamesAimSettingsList = new();
             GamesAimSettingsList.Add(gameName, new GamesAimSettings() { GameName = gameName });
 
-            form1_.RefreshGamesComboBox();
+            form1_.addAndSelectGameuc1.RefreshGamesComboBox();
         }
 
         internal void SelectGame()
         {
-            string gameNameToSelect = form1_.GetSelectGameComboText();
+            string gameNameToSelect = form1_.addAndSelectGameuc1.GetSelectGameComboText();
             SelectGameByName(gameNameToSelect);
         }
 

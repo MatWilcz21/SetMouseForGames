@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             UpdateMouseInfo = new Button();
-            SelectGameCombo = new ComboBox();
-            SelectGameButton = new Button();
-            CreateNewGameButton = new Button();
-            EnterGameNameTextBox = new TextBox();
-            DeleteGameFromList = new Button();
             PasteValueToFirstPersonAimPx = new Button();
             PasteValueToInGameCursorPx = new Button();
             CopyFromFirstPersonAimPx = new Button();
@@ -45,8 +40,7 @@
             MainSpinValueHolder = new Label();
             FirstPersonAimPx = new Label();
             InGameCursorPx = new Label();
-            label1 = new Label();
-            userControl11 = new UserControl1();
+            addAndSelectGameuc1 = new AddAndSelectGameUC();
             SuspendLayout();
             // 
             // UpdateMouseInfo
@@ -58,51 +52,6 @@
             UpdateMouseInfo.Text = "Update mouse";
             UpdateMouseInfo.UseVisualStyleBackColor = true;
             UpdateMouseInfo.Click += button1_Click;
-            // 
-            // SelectGameCombo
-            // 
-            SelectGameCombo.FormattingEnabled = true;
-            SelectGameCombo.Location = new Point(12, 81);
-            SelectGameCombo.Name = "SelectGameCombo";
-            SelectGameCombo.Size = new Size(121, 23);
-            SelectGameCombo.TabIndex = 1;
-            // 
-            // SelectGameButton
-            // 
-            SelectGameButton.Location = new Point(13, 51);
-            SelectGameButton.Name = "SelectGameButton";
-            SelectGameButton.Size = new Size(120, 23);
-            SelectGameButton.TabIndex = 2;
-            SelectGameButton.Text = "Select Game";
-            SelectGameButton.UseVisualStyleBackColor = true;
-            SelectGameButton.Click += SelectGameButton_Click;
-            // 
-            // CreateNewGameButton
-            // 
-            CreateNewGameButton.Location = new Point(151, 51);
-            CreateNewGameButton.Name = "CreateNewGameButton";
-            CreateNewGameButton.Size = new Size(120, 23);
-            CreateNewGameButton.TabIndex = 3;
-            CreateNewGameButton.Text = "Add game";
-            CreateNewGameButton.UseVisualStyleBackColor = true;
-            CreateNewGameButton.Click += CreateNewGameButton_Click;
-            // 
-            // EnterGameNameTextBox
-            // 
-            EnterGameNameTextBox.Location = new Point(151, 80);
-            EnterGameNameTextBox.Name = "EnterGameNameTextBox";
-            EnterGameNameTextBox.Size = new Size(120, 23);
-            EnterGameNameTextBox.TabIndex = 4;
-            // 
-            // DeleteGameFromList
-            // 
-            DeleteGameFromList.Location = new Point(12, 110);
-            DeleteGameFromList.Name = "DeleteGameFromList";
-            DeleteGameFromList.Size = new Size(120, 23);
-            DeleteGameFromList.TabIndex = 5;
-            DeleteGameFromList.Text = "Del selected game";
-            DeleteGameFromList.UseVisualStyleBackColor = true;
-            DeleteGameFromList.Click += DeleteGameFromList_Click;
             // 
             // PasteValueToFirstPersonAimPx
             // 
@@ -209,30 +158,19 @@
             InGameCursorPx.TabIndex = 19;
             InGameCursorPx.Text = "0";
             // 
-            // label1
+            // addAndSelectGameuc1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(624, 309);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 20;
-            label1.Text = "label1";
-            label1.Click += label1_Click_1;
-            // 
-            // userControl11
-            // 
-            userControl11.Location = new Point(442, 325);
-            userControl11.Name = "userControl11";
-            userControl11.Size = new Size(150, 150);
-            userControl11.TabIndex = 21;
+            addAndSelectGameuc1.Location = new Point(2, 40);
+            addAndSelectGameuc1.Name = "addAndSelectGameuc1";
+            addAndSelectGameuc1.Size = new Size(317, 142);
+            addAndSelectGameuc1.TabIndex = 20;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(863, 508);
-            Controls.Add(userControl11);
-            Controls.Add(label1);
+            Controls.Add(addAndSelectGameuc1);
             Controls.Add(InGameCursorPx);
             Controls.Add(FirstPersonAimPx);
             Controls.Add(MainSpinValueHolder);
@@ -244,11 +182,6 @@
             Controls.Add(CopyFromFirstPersonAimPx);
             Controls.Add(PasteValueToInGameCursorPx);
             Controls.Add(PasteValueToFirstPersonAimPx);
-            Controls.Add(DeleteGameFromList);
-            Controls.Add(EnterGameNameTextBox);
-            Controls.Add(CreateNewGameButton);
-            Controls.Add(SelectGameButton);
-            Controls.Add(SelectGameCombo);
             Controls.Add(UpdateMouseInfo);
             Name = "Form1";
             Text = "Form1";
@@ -259,11 +192,6 @@
         #endregion
 
         private Button UpdateMouseInfo;
-        private ComboBox SelectGameCombo;
-        private Button SelectGameButton;
-        private Button CreateNewGameButton;
-        private TextBox EnterGameNameTextBox;
-        private Button DeleteGameFromList;
         private Button PasteValueToFirstPersonAimPx;
         private Button PasteValueToInGameCursorPx;
         private Button CopyFromFirstPersonAimPx;
@@ -275,7 +203,6 @@
         private Label MainSpinValueHolder;
         private Label FirstPersonAimPx;
         private Label InGameCursorPx;
-        private Label label1;
-        private UserControl1 userControl11;
+        public AddAndSelectGameUC addAndSelectGameuc1;
     }
 }

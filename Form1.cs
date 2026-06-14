@@ -10,9 +10,19 @@ public partial class Form1 : Form
         mainLogic = new MainLogic(this);
         mainLogic.WindowsMouseSettings = new WindowsMouseSettings(this);
         InitializeComponent();
+        InitOtherForms();
         UpdateMouseInfoLabel();
 
+        InitOtherForms();
+
+
+
         new LoadAppDataX(mainLogic);
+    }
+
+    void InitOtherForms()
+    {
+        addAndSelectGameuc1.form1 = this;
     }
 
     protected override void OnHandleCreated(EventArgs e)
@@ -49,16 +59,6 @@ public partial class Form1 : Form
         new SaveAppDataX(mainLogic);
 
         base.OnFormClosing(e);
-    }
-
-    internal void RefreshGamesComboBox()
-    {
-        SelectGameCombo.Items.Clear();
-
-        foreach (var gameName in mainLogic.GamesManager.GamesAimSettingsList.Keys)
-        {
-            SelectGameCombo.Items.Add(gameName);
-        }
     }
 
     internal void UpdateMainValueHolder()
@@ -105,24 +105,6 @@ public partial class Form1 : Form
 
     #region games buttons
 
-    private void CreateNewGameButton_Click(object sender, EventArgs e)
-    {
-        mainLogic.GamesManager.AddNewGameToList(EnterGameNameTextBox.Text);
-        EnterGameNameTextBox.Text = null;
-    }
-
-    private void SelectGameButton_Click(object sender, EventArgs e)
-    {
-        mainLogic.GamesManager.SelectGame();
-    }
-
-    private void DeleteGameFromList_Click(object sender, EventArgs e)
-    {
-        mainLogic.GamesManager.RemoveGameFromList(SelectGameCombo.Text);
-        RefreshGamesComboBox();
-        SelectGameCombo.Text = null;
-    }
-
     #endregion
 
     #region data manipulation buttons
@@ -163,11 +145,6 @@ public partial class Form1 : Form
 
     #region get data from form
 
-    internal string GetSelectGameComboText()
-    {
-        return SelectGameCombo.Text;
-    }
-
     #endregion
 
     #region set data to form
@@ -205,6 +182,26 @@ public partial class Form1 : Form
 
 
     private void label1_Click_1(object sender, EventArgs e)
+    {
+
+    }
+
+    private void userControl21_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void addAndSelectGameuc1_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void addAndSelectGameuc2_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void userControl22_Load(object sender, EventArgs e)
     {
 
     }
