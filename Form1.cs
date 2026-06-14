@@ -10,9 +10,21 @@ public partial class Form1 : Form
         mainLogic = new MainLogic(this);
         mainLogic.WindowsMouseSettings = new WindowsMouseSettings(this);
         InitializeComponent();
-        UpdateMouseInfoLabel();
+        InitOtherForms();
+
+        InitOtherForms();
+
+
 
         new LoadAppDataX(mainLogic);
+        mouseInfouc1.UpdateMouseInfoLabel();
+    }
+
+    void InitOtherForms()
+    {
+        addAndSelectGameuc1.form1 = this;
+        mouseInfouc1.form1 = this;
+        gameDatauc1.Form1 = this;
     }
 
     protected override void OnHandleCreated(EventArgs e)
@@ -51,96 +63,9 @@ public partial class Form1 : Form
         base.OnFormClosing(e);
     }
 
-    internal void RefreshGamesComboBox()
-    {
-        SelectGameCombo.Items.Clear();
-
-        foreach (var gameName in mainLogic.GamesManager.GamesAimSettingsList.Keys)
-        {
-            SelectGameCombo.Items.Add(gameName);
-        }
-    }
-
-    internal void UpdateMainValueHolder()
-    {
-        MainSpinValueHolder.Text = mainLogic.SpinValue.ToString();
-
-    }
-
-    internal void UpdateGameValues()
-    {
-        if (mainLogic.GamesManager.SelectedGameAimSettings is null) return;
-
-        FirstPersonAimPx.Text = mainLogic.GamesManager.SelectedGameAimSettings.FirstPersonAimPx.ToString();
-        InGameCursorPx.Text = mainLogic.GamesManager.SelectedGameAimSettings.InGameCursorPx.ToString();
-    }
-
-    internal void UpdateMouseInfoLabel()
+    private void addAndSelectGameuc1_Load(object sender, EventArgs e)
     {
 
-        //mainLogic.WindowsMouseSettings = new WindowsMouseSettings(this);
-
-        string messageToPrint = string.Concat($"Mouse speed: {mainLogic.WindowsMouseSettings.WindowsSettingsMouseSpeed.ToString()}/20\n",
-            $"Enhanced precision: {mainLogic.WindowsMouseSettings.IsWindowsEnhancePointerPrecisionOn.ToString()}\n",
-            $"Scroll speed: {mainLogic.WindowsMouseSettings.WindowsScrollSpeed}lines\n",
-            $"Driver DPI: {mainLogic.WindowsMouseSettings.MouseDriverDPI.ToString()}");
-
-
-        MouseInfoLabel.Text = messageToPrint;
-    }
-
-    #region buttons
-
-    private void button1_Click(object sender, EventArgs e)
-    {
-        UpdateMouseInfoLabel();
-    }
-
-    private void SetMouseDpi_Click(object sender, EventArgs e)
-    {
-        mainLogic.WindowsMouseSettings.GetMouseDPI(MouseDPITextBox.Text);
-    }
-
-    #endregion
-
-    #region games buttons
-
-    private void CreateNewGameButton_Click(object sender, EventArgs e)
-    {
-        mainLogic.GamesManager.AddNewGameToList(EnterGameNameTextBox.Text);
-        EnterGameNameTextBox.Text = null;
-    }
-
-    private void SelectGameButton_Click(object sender, EventArgs e)
-    {
-        mainLogic.GamesManager.SelectGame();
-    }
-
-    private void DeleteGameFromList_Click(object sender, EventArgs e)
-    {
-        mainLogic.GamesManager.RemoveGameFromList(SelectGameCombo.Text);
-        RefreshGamesComboBox();
-        SelectGameCombo.Text = null;
-    }
-
-    #endregion
-
-    #region data manipulation buttons
-
-    private void PasteValueToFirstPersonAimPx_Click(object sender, EventArgs e)
-    {
-        if (mainLogic.GamesManager.isSelectedGameNull()) return;
-
-        mainLogic.GamesManager.SelectedGameAimSettings.FirstPersonAimPx = mainLogic.SpinValue;
-        UpdateGameValues();
-    }
-
-    private void PasteValueToInGameCursorPx_Click(object sender, EventArgs e)
-    {
-        if (mainLogic.GamesManager.isSelectedGameNull()) return;
-
-        mainLogic.GamesManager.SelectedGameAimSettings.InGameCursorPx = mainLogic.SpinValue;
-        UpdateGameValues();
     }
 
     private void CopyFromInGameCursorPx_Click(object sender, EventArgs e)

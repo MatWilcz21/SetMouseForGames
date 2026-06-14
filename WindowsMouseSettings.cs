@@ -44,7 +44,7 @@ internal record class WindowsMouseSettings
     internal void SetMouseDriverDPI(int dpi)
     {
         MouseDriverDPI = dpi;
-        form1.UpdateMouseInfoLabel();
+        //form1.UpdateMouseInfoLabel();
     }
 
     internal void DebugPrintMouseSettings()

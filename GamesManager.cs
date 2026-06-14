@@ -15,7 +15,7 @@
             set
             {
                 gamesAimSettingsList = value;
-                form1_.RefreshGamesComboBox();
+                form1_.addAndSelectGameuc1.RefreshGamesComboBox();
             }
         }
         internal GamesAimSettings SelectedGameAimSettings { get; set; } = null!;
@@ -35,12 +35,12 @@
             if (gamesAimSettingsList is null) gamesAimSettingsList = new();
             GamesAimSettingsList.Add(gameName, new GamesAimSettings() { GameName = gameName });
 
-            form1_.RefreshGamesComboBox();
+            form1_.addAndSelectGameuc1.RefreshGamesComboBox();
         }
 
         internal void SelectGame()
         {
-            string gameNameToSelect = form1_.GetSelectGameComboText();
+            string gameNameToSelect = form1_.addAndSelectGameuc1.GetSelectGameComboText();
             SelectGameByName(gameNameToSelect);
         }
 
@@ -60,8 +60,8 @@
 
             form1_.mainLogic.GamesManager.SelectedGameAimSettings = gamesAim;
 
-            form1_.UpdateGameValues();
-            form1_.SetGameNameLabel(form1_.mainLogic.GamesManager.SelectedGameAimSettings.GameName);
+            form1_.gameDatauc1.UpdateGameValues();
+            form1_.addAndSelectGameuc1.SetGameNameLabel(form1_.mainLogic.GamesManager.SelectedGameAimSettings.GameName);
         }
 
         internal void RemoveGameFromList(string gameName)
@@ -110,7 +110,7 @@
     }
 }
 
-internal class aaaa
+internal class AAaa
 {
     internal static bool IsAnyGameSelected()
     {
