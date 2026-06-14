@@ -32,6 +32,9 @@
 
             gameName = GameNameMethods.GetTrimedName(gameName);
 
+            if (IsGameWithThisNameInBase(gameName)) return;
+
+
             if (gamesAimSettingsList is null) gamesAimSettingsList = new();
             GamesAimSettingsList.Add(gameName, new GamesAimSettings() { GameName = gameName });
 
@@ -78,6 +81,17 @@
                 return true;
             }
             else return false;
+        }
+
+        internal bool IsGameWithThisNameInBase(string gameName)
+        {
+            if (gamesAimSettingsList.ContainsKey(gameName))
+            {
+                MessageBox.Show("eX", "Error");
+                return true;
+            }
+            else
+                return false;
         }
 
     }

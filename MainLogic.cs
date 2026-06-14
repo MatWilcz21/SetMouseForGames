@@ -8,6 +8,9 @@ internal class MainLogic
         GamesManager = new GamesManager(_form1);
         HotKeysList = CreateKeyBinds.CreateKeyBindsX();
         form1 = _form1;
+
+
+        rotationEngine = new SimpleStepper(this);
     }
 
     internal Form1 form1 { get; private set; }
@@ -15,63 +18,38 @@ internal class MainLogic
     internal GamesManager GamesManager { get; private set; }
 
     internal int SpinValue { get; set; }
-    int SpinValueChangeScale = 64;
 
     public HotKeyStruct[] HotKeysList { get; private set; }
 
     internal WindowsMouseSettings WindowsMouseSettings { get; set; }
 
+    IRotationEngine rotationEngine;
+
     internal void Dosmth(HotKeyEnum hotKeyEnum)
     {
-
-        //MouseSpinClass.DoSpin(6000 * 8 * 2);
-
         switch (hotKeyEnum)
         {
             case HotKeyEnum.FullRotation:
-                DoShowFullSpin();
+                rotationEngine.DoFullRotation();
                 break;
             case HotKeyEnum.RotationIncrement:
-                Increment(true);
+                rotationEngine.AddRotation();
+                form1.gameDatauc1.UpdateMainValueHolder();
                 break;
             case HotKeyEnum.RotationDecrement:
-                Increment(false);
+                rotationEngine.SubRotation();
+                form1.gameDatauc1.UpdateMainValueHolder();
                 break;
 
             case HotKeyEnum.RotationScaleIncrement:
-                ScaleIncrement(true);
+                rotationEngine.IncrSpeed();
                 break;
             case HotKeyEnum.RotationScaleDecrement:
-                ScaleIncrement(false);
+                rotationEngine.DecrSpeed();
                 break;
             case HotKeyEnum.SaveFile:
                 throw new NotImplementedException("no");
                 //break;
         }
-
-    }
-
-    void DoShowFullSpin()
-    {
-        MouseSpinClass.DoSpin(SpinValue);
-        Thread.Sleep(300);
-    }
-
-    void Increment(bool isIncrementing)
-    {
-        if (isIncrementing) SpinValue += SpinValueChangeScale;
-        else SpinValue -= SpinValueChangeScale;
-        DoShowFullSpin();
-
-        form1.gameDatauc1.UpdateMainValueHolder();
-    }
-
-    void ScaleIncrement(bool isIncrementing)
-    {
-
-        int change = 2;
-
-        if (isIncrementing) SpinValueChangeScale *= change;
-        else SpinValueChangeScale /= change;
     }
 }
