@@ -24,6 +24,7 @@ public partial class Form1 : Form
     {
         addAndSelectGameuc1.form1 = this;
         mouseInfouc1.form1 = this;
+        gameDatauc1.Form1 = this;
     }
 
     protected override void OnHandleCreated(EventArgs e)
@@ -62,103 +63,8 @@ public partial class Form1 : Form
         base.OnFormClosing(e);
     }
 
-    internal void UpdateMainValueHolder()
-    {
-        MainSpinValueHolder.Text = mainLogic.SpinValue.ToString();
-
-    }
-
-    internal void UpdateGameValues()
-    {
-        if (mainLogic.GamesManager.SelectedGameAimSettings is null) return;
-
-        FirstPersonAimPx.Text = mainLogic.GamesManager.SelectedGameAimSettings.FirstPersonAimPx.ToString();
-        InGameCursorPx.Text = mainLogic.GamesManager.SelectedGameAimSettings.InGameCursorPx.ToString();
-    }
-
-
-    #region buttons
-
-
-
-    #endregion
-
-    #region games buttons
-
-    #endregion
-
-    #region data manipulation buttons
-
-    private void PasteValueToFirstPersonAimPx_Click(object sender, EventArgs e)
-    {
-        if (mainLogic.GamesManager.isSelectedGameNull()) return;
-
-        mainLogic.GamesManager.SelectedGameAimSettings.FirstPersonAimPx = mainLogic.SpinValue;
-        UpdateGameValues();
-    }
-
-    private void PasteValueToInGameCursorPx_Click(object sender, EventArgs e)
-    {
-        if (mainLogic.GamesManager.isSelectedGameNull()) return;
-
-        mainLogic.GamesManager.SelectedGameAimSettings.InGameCursorPx = mainLogic.SpinValue;
-        UpdateGameValues();
-    }
-
-    private void CopyFromInGameCursorPx_Click(object sender, EventArgs e)
-    {
-        if (mainLogic.GamesManager.isSelectedGameNull()) return;
-
-        mainLogic.SpinValue = mainLogic.GamesManager.SelectedGameAimSettings.InGameCursorPx;
-        UpdateMainValueHolder();
-    }
-
-    private void CopyFromFirstPersonAimPx_Click(object sender, EventArgs e)
-    {
-        if (mainLogic.GamesManager.isSelectedGameNull()) return;
-
-        mainLogic.SpinValue = mainLogic.GamesManager.SelectedGameAimSettings.FirstPersonAimPx;
-        UpdateMainValueHolder();
-    }
-
-    #endregion
-
-    #region get data from form
-
-    #endregion
-
-    #region set data to form
-
-    internal void SetGameNameLabel(string gameName)
-    {
-        SelectedGameNameLabel.Text = $"Selected game profile: {gameName}";
-    }
-
-    #endregion
-
-    #region empty
-    private void InGameCursorPx_TextChanged(object sender, EventArgs e)
+    private void addAndSelectGameuc1_Load(object sender, EventArgs e)
     {
 
     }
-
-    private void FirstPersonAimPx_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-
-
-    private void label1_Click(object sender, EventArgs e)
-    {
-
-    }
-    private void FirstPersonAimPx_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    #endregion
-
-
 }

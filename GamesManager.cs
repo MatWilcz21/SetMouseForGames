@@ -60,8 +60,8 @@
 
             form1_.mainLogic.GamesManager.SelectedGameAimSettings = gamesAim;
 
-            form1_.UpdateGameValues();
-            form1_.SetGameNameLabel(form1_.mainLogic.GamesManager.SelectedGameAimSettings.GameName);
+            form1_.gameDatauc1.UpdateGameValues();
+            form1_.addAndSelectGameuc1.SetGameNameLabel(form1_.mainLogic.GamesManager.SelectedGameAimSettings.GameName);
         }
 
         internal void RemoveGameFromList(string gameName)

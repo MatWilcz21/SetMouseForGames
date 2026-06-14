@@ -17,7 +17,7 @@ internal class CreateKeyBinds
 
         HotKeyStruct[] hotKeyStructsList = new HotKeyStruct[0];
 
-        AddKeybind(HotKeyEnum.FullRotation, ModKeys.LAlt, Keys.F2);
+        AddKeybind(HotKeyEnum.FullRotation, ModKeys.LWin, Keys.F2);
 
         AddKeybind(HotKeyEnum.RotationDecrement, ModKeys.LWin, Keys.F6);
         AddKeybind(HotKeyEnum.RotationIncrement, ModKeys.LWin, Keys.F7);

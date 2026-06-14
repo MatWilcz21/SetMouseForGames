@@ -48,4 +48,9 @@ public partial class AddAndSelectGameUC : UserControl
     {
         return SelectGameCombo.Text;
     }
+
+    internal void SetGameNameLabel(string gameName)
+    {
+        SelectedGameNameLabel.Text = $"Selected game profile: {gameName}";
+    }
 }

@@ -33,6 +33,7 @@
             CreateNewGameButton = new Button();
             SelectGameButton = new Button();
             SelectGameCombo = new ComboBox();
+            SelectedGameNameLabel = new Label();
             SuspendLayout();
             // 
             // DeleteGameFromList
@@ -80,10 +81,21 @@
             SelectGameCombo.Size = new Size(121, 23);
             SelectGameCombo.TabIndex = 6;
             // 
+            // SelectedGameNameLabel
+            // 
+            SelectedGameNameLabel.AutoSize = true;
+            SelectedGameNameLabel.Font = new Font("Segoe UI", 15F);
+            SelectedGameNameLabel.Location = new Point(27, 105);
+            SelectedGameNameLabel.Name = "SelectedGameNameLabel";
+            SelectedGameNameLabel.Size = new Size(28, 28);
+            SelectedGameNameLabel.TabIndex = 17;
+            SelectedGameNameLabel.Text = "__";
+            // 
             // AddAndSelectGameUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(SelectedGameNameLabel);
             Controls.Add(DeleteGameFromList);
             Controls.Add(EnterGameNameTextBox);
             Controls.Add(CreateNewGameButton);
@@ -103,5 +115,6 @@
         private Button CreateNewGameButton;
         private Button SelectGameButton;
         private ComboBox SelectGameCombo;
+        private Label SelectedGameNameLabel;
     }
 }

@@ -63,7 +63,7 @@ internal class MainLogic
         else SpinValue -= SpinValueChangeScale;
         DoShowFullSpin();
 
-        form1.UpdateMainValueHolder();
+        form1.gameDatauc1.UpdateMainValueHolder();
     }
 
     void ScaleIncrement(bool isIncrementing)
