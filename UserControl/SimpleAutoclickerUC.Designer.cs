@@ -1,6 +1,6 @@
 ﻿namespace SetMouseForGames
 {
-    partial class SimpleAutoclickerUC
+    partial class SimpleAutoClickerUC
     {
         /// <summary> 
         /// Required designer variable.

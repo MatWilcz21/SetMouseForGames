@@ -31,7 +31,7 @@
             addAndSelectGameuc1 = new AddAndSelectGameUC();
             mouseInfouc1 = new MouseInfoUC();
             gameDatauc1 = new GameDataUC();
-            simpleAutoclickeruc1 = new SimpleAutoclickerUC();
+            simpleAutoclickeruc1 = new SimpleAutoClickerUC();
             SuspendLayout();
             // 
             // addAndSelectGameuc1
@@ -81,6 +81,6 @@
         public AddAndSelectGameUC addAndSelectGameuc1;
         public MouseInfoUC mouseInfouc1;
         public GameDataUC gameDatauc1;
-        private SimpleAutoclickerUC simpleAutoclickeruc1;
+        private SimpleAutoClickerUC simpleAutoclickeruc1;
     }
 }

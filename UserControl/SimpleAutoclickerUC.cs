@@ -1,12 +1,12 @@
 ﻿namespace SetMouseForGames;
 
-public partial class SimpleAutoclickerUC : UserControl
+public partial class SimpleAutoClickerUC : UserControl
 {
     bool autoclick;
 
     int pxDistanceToTravel = 4;
 
-    public SimpleAutoclickerUC()
+    public SimpleAutoClickerUC()
     {
         InitializeComponent();
         UpdateDistanceLabel();
