@@ -32,6 +32,7 @@
             mouseInfouc1 = new MouseInfoUC();
             gameDatauc1 = new GameDataUC();
             simpleAutoclickeruc1 = new SimpleAutoClickerUC();
+            simpleMouseMoveruc1 = new SimpleMouseMoverUC();
             SuspendLayout();
             // 
             // addAndSelectGameuc1
@@ -44,7 +45,7 @@
             // 
             // mouseInfouc1
             // 
-            mouseInfouc1.Location = new Point(208, 160);
+            mouseInfouc1.Location = new Point(400, 172);
             mouseInfouc1.Name = "mouseInfouc1";
             mouseInfouc1.Size = new Size(277, 119);
             mouseInfouc1.TabIndex = 23;
@@ -58,16 +59,24 @@
             // 
             // simpleAutoclickeruc1
             // 
-            simpleAutoclickeruc1.Location = new Point(527, 191);
+            simpleAutoclickeruc1.Location = new Point(188, 181);
             simpleAutoclickeruc1.Name = "simpleAutoclickeruc1";
             simpleAutoclickeruc1.Size = new Size(150, 197);
             simpleAutoclickeruc1.TabIndex = 24;
+            // 
+            // simpleMouseMoveruc1
+            // 
+            simpleMouseMoveruc1.Location = new Point(23, 238);
+            simpleMouseMoveruc1.Name = "simpleMouseMoveruc1";
+            simpleMouseMoveruc1.Size = new Size(150, 150);
+            simpleMouseMoveruc1.TabIndex = 25;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(689, 400);
+            Controls.Add(simpleMouseMoveruc1);
             Controls.Add(simpleAutoclickeruc1);
             Controls.Add(gameDatauc1);
             Controls.Add(mouseInfouc1);
@@ -82,5 +91,6 @@
         public MouseInfoUC mouseInfouc1;
         public GameDataUC gameDatauc1;
         private SimpleAutoClickerUC simpleAutoclickeruc1;
+        private SimpleMouseMoverUC simpleMouseMoveruc1;
     }
 }

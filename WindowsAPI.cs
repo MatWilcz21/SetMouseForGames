@@ -20,6 +20,17 @@ internal class WindowsAPI
     [DllImport("User32.dll")]
     internal static extern Boolean SystemParametersInfo(UInt32 uiAction, UInt32 uiParam, UInt32 pvParam, UInt32 fWinIni);
 
+    internal enum Windows_SPIs
+    {
+        SPI_GETMOUSE = 0x0003,
+        SPI_GETWHEELSCROLLLINES = 0x0068,
+        SPI_GETMOUSESPEED = 0x0070,
+        SPI_SETMOUSESPEED = 0x0071,
+    }
+}
+
+internal class MouseControlWindowsAPI
+{
     [DllImport("user32.dll", SetLastError = true)]
     internal static extern uint SendInput(uint nInputs, INPUT[] pInputs, int cbSize);
 
@@ -39,14 +50,6 @@ internal class WindowsAPI
         public uint dwFlags;
         public uint time;
         public IntPtr dwExtraInfo;
-    }
-
-    internal enum Windows_SPIs
-    {
-        SPI_GETMOUSE = 0x0003,
-        SPI_GETWHEELSCROLLLINES = 0x0068,
-        SPI_GETMOUSESPEED = 0x0070,
-        SPI_SETMOUSESPEED = 0x0071,
     }
 }
 

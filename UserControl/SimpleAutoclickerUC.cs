@@ -1,10 +1,13 @@
-﻿namespace SetMouseForGames;
+﻿using System.Runtime.InteropServices;
+
+namespace SetMouseForGames;
 
 public partial class SimpleAutoClickerUC : UserControl
 {
-    bool autoclick;
+    private int pxDistanceToTravel = 4;
 
-    int pxDistanceToTravel = 4;
+    private CancellationTokenSource? cts;
+    private Task? clickTask;
 
     public SimpleAutoClickerUC()
     {
@@ -12,34 +15,65 @@ public partial class SimpleAutoClickerUC : UserControl
         UpdateDistanceLabel();
     }
 
-    private async void Start_Click(object sender, EventArgs e)
+    private void Start_Click(object sender, EventArgs e)
     {
-        Click();
+        if (clickTask is { IsCompleted: false })
+            return;
+
+        cts?.Cancel();
+        cts = new CancellationTokenSource();
+
+        clickTask = ClickAsync(cts.Token);
     }
 
     private void Stop_Click(object sender, EventArgs e)
     {
-        autoclick = false;
+        cts?.Cancel();
     }
 
-    private async void Click()
+    private async Task ClickAsync(CancellationToken token)
     {
-        autoclick = true;
+        const int taskDelay = 1000;
 
 
-        int taskDelay = 125;
-
-        while (autoclick)
+        while (!token.IsCancellationRequested)
         {
-            await Task.Delay(taskDelay);
-            MouseSpinClass.DoMove(pxDistanceToTravel, 0);
-            await Task.Delay(taskDelay);
-            MouseSpinClass.DoMove(0, -pxDistanceToTravel);
-            await Task.Delay(taskDelay);
-            MouseSpinClass.DoMove(-pxDistanceToTravel, 0);
-            await Task.Delay(taskDelay);
-            MouseSpinClass.DoMove(0, pxDistanceToTravel);
+            await Task.Delay(taskDelay, token);
+            SingleClick();
         }
+
+    }
+
+    private void SingleClick()
+    {
+        const uint MOUSEEVENTF_LEFTDOWN = 0x0002;
+        const uint MOUSEEVENTF_LEFTUP = 0x0004;
+
+        MouseControlWindowsAPI.INPUT[] inputs = new MouseControlWindowsAPI.INPUT[2];
+
+        inputs[0] = new MouseControlWindowsAPI.INPUT
+        {
+            type = 0,
+            mi = new MouseControlWindowsAPI.MOUSEINPUT
+            {
+                dwFlags = MOUSEEVENTF_LEFTDOWN
+            }
+        };
+
+        inputs[1] = new MouseControlWindowsAPI.INPUT
+        {
+            type = 0,
+            mi = new MouseControlWindowsAPI.MOUSEINPUT
+            {
+                dwFlags = MOUSEEVENTF_LEFTUP
+            }
+        };
+
+        MouseControlWindowsAPI.SendInput(
+            (uint)inputs.Length,
+            inputs,
+            Marshal.SizeOf(typeof(MouseControlWindowsAPI.INPUT))
+        );
     }
 
     private void PxDistanceIncr_Click(object sender, EventArgs e)
@@ -54,14 +88,15 @@ public partial class SimpleAutoClickerUC : UserControl
         UpdateDistanceLabel();
     }
 
-    void UpdateDistanceLabel()
+    private void UpdateDistanceLabel()
     {
         const int minDistance = 3;
         const int maxDistance = 10;
 
         pxDistanceToTravel = Math.Clamp(pxDistanceToTravel, minDistance, maxDistance);
 
-        PxDistanceLabel.Text = $"{pxDistanceToTravel.ToString()}px";
+        PxDistanceLabel.Text = $"{pxDistanceToTravel}px";
     }
-
 }
+
+

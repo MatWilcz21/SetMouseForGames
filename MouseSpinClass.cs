@@ -27,14 +27,14 @@ namespace SetMouseForGames
 
         public static void DoSpinLowLevel(int spinValueLowX, int spinValueLowY)
         {
-            WindowsAPI.INPUT input = new WindowsAPI.INPUT();
+            MouseControlWindowsAPI.INPUT input = new MouseControlWindowsAPI.INPUT();
 
             input.type = INPUT_MOUSE;
             input.mi.dx = spinValueLowX;
             input.mi.dy = -spinValueLowY;
             input.mi.dwFlags = MOUSEEVENTF_MOVE;
 
-            WindowsAPI.SendInput(1, new WindowsAPI.INPUT[] { input }, Marshal.SizeOf(typeof(WindowsAPI.INPUT)));
+            MouseControlWindowsAPI.SendInput(1, new MouseControlWindowsAPI.INPUT[] { input }, Marshal.SizeOf(typeof(MouseControlWindowsAPI.INPUT)));
         }
     }
 }
