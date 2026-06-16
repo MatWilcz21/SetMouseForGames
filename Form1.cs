@@ -15,6 +15,7 @@ public partial class Form1 : Form
         InitOtherForms();
 
 
+        new SmoothRot();
 
         new LoadAppDataX(mainLogic);
         mouseInfouc1.UpdateMouseInfoLabel();

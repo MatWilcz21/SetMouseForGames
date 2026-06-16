@@ -12,6 +12,11 @@ namespace SetMouseForGames
             Thread.Sleep(500);
             MouseInputLowLevel.DoSpinLowLevel(-spinValue);
         }
+
+        internal static void DoMove(int spinValue)
+        {
+            MouseInputLowLevel.DoSpinLowLevel(spinValue);
+        }
     }
 
     public class MouseInputLowLevel
