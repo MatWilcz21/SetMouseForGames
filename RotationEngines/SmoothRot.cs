@@ -58,10 +58,10 @@ internal class SmoothRot
                     f9Down = true;
 
                 if (lwinDown && f8Down)
-                    MouseSpinClass.DoMove(-5);
+                    MouseSpinClass.DoMove(-5, 0);
 
                 if (lwinDown && f9Down)
-                    MouseSpinClass.DoMove(5);
+                    MouseSpinClass.DoMove(5, 0);
             }
 
             if (wParam == (IntPtr)WM_KEYUP)
