@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             addAndSelectGameuc1 = new AddAndSelectGameUC();
             mouseInfouc1 = new MouseInfoUC();
             gameDatauc1 = new GameDataUC();
             simpleAutoclickeruc1 = new SimpleAutoClickerUC();
             simpleMouseMoveruc1 = new SimpleMouseMoverUC();
+            notifyIcon1 = new NotifyIcon(components);
             SuspendLayout();
             // 
             // addAndSelectGameuc1
@@ -71,6 +73,10 @@
             simpleMouseMoveruc1.Size = new Size(150, 150);
             simpleMouseMoveruc1.TabIndex = 25;
             // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Text = "notifyIcon1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -92,5 +98,6 @@
         public GameDataUC gameDatauc1;
         private SimpleAutoClickerUC simpleAutoclickeruc1;
         private SimpleMouseMoverUC simpleMouseMoveruc1;
+        public NotifyIcon notifyIcon1;
     }
 }

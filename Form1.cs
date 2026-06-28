@@ -5,6 +5,8 @@ public partial class Form1 : Form
 
     internal MainLogic mainLogic { get; private set; }
 
+    NotifyIconClass notifyIcon1X;
+
     public Form1()
     {
         mainLogic = new MainLogic(this);
@@ -12,13 +14,12 @@ public partial class Form1 : Form
         InitializeComponent();
         InitOtherForms();
 
-        InitOtherForms();
 
-
-        new SmoothRot();
+        //new SmoothRot();
 
         new LoadAppDataX(mainLogic);
         mouseInfouc1.UpdateMouseInfoLabel();
+        notifyIcon1X = new NotifyIconClass(this);
     }
 
     void InitOtherForms()
@@ -38,7 +39,7 @@ public partial class Form1 : Form
         }
     }
 
-    protected override void WndProc(ref Message m)
+    /*protected override void WndProc(ref Message m)
     {
         const int WM_HOTKEY = 0x0312;
 
@@ -50,6 +51,31 @@ public partial class Form1 : Form
         }
 
         base.WndProc(ref m);
+    }*/
+
+    protected override void WndProc(ref Message m)
+    {
+        const int WM_SYSCOMMAND = 0x0112;
+        const int SC_MINIMIZE = 0xF020;
+
+        if (m.Msg == WM_SYSCOMMAND && (m.WParam.ToInt32() & 0xFFF0) == SC_MINIMIZE)
+        {
+            notifyIcon1.BalloonTipText = "aaaa";
+            Hide();
+            notifyIcon1.Visible = true;
+            notifyIcon1.Icon = SystemIcons.Application;
+            return;
+        }
+
+        base.WndProc(ref m);
+    }
+
+    internal void NotifyIcon1_DoubleClick()
+    {
+        Show();
+        WindowState = FormWindowState.Normal;
+        Activate();
+        notifyIcon1.Visible = false;
     }
 
     protected override void OnFormClosing(FormClosingEventArgs e)
@@ -68,39 +94,5 @@ public partial class Form1 : Form
     {
 
     }
-
-
-    #region set data to form
-
-    #endregion
-
-    #region empty
-    private void InGameCursorPx_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void FirstPersonAimPx_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-
-
-    private void label1_Click(object sender, EventArgs e)
-    {
-
-    }
-    private void FirstPersonAimPx_Click(object sender, EventArgs e)
-    {
-
-    }
-    private void SelectGameCombo_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    #endregion
-
 
 }
