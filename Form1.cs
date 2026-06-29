@@ -70,7 +70,7 @@ public partial class Form1 : Form
         base.WndProc(ref m);
     }
 
-    internal void NotifyIcon1_DoubleClick()
+    internal void ShowApp()
     {
         Show();
         WindowState = FormWindowState.Normal;

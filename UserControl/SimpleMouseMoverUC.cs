@@ -15,7 +15,7 @@ public partial class SimpleMouseMoverUC : UserControl
         UpdateDistanceLabel();
     }
 
-    private void Start_Click(object sender, EventArgs e)
+    private void Start_Move(object sender, EventArgs e)
     {
         if (clickTask is { IsCompleted: false })
             return;
@@ -23,7 +23,7 @@ public partial class SimpleMouseMoverUC : UserControl
         cts?.Cancel();
         cts = new CancellationTokenSource();
 
-        clickTask = ClickAsync(cts.Token);
+        clickTask = MoveAsync(cts.Token);
     }
 
     private void Stop_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ public partial class SimpleMouseMoverUC : UserControl
         cts?.Cancel();
     }
 
-    private async Task ClickAsync(CancellationToken token)
+    private async Task MoveAsync(CancellationToken token)
     {
         const int taskDelay = 125;
 

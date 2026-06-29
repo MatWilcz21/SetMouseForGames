@@ -5,12 +5,11 @@ internal class NotifyIconClass
 
     internal NotifyIconClass(Form1 form1)
     {
-        ///
 
         var menu = new ContextMenuStrip();
 
-        var showItem = new ToolStripMenuItem("Pokaż");
-        showItem.Click += (s, e) => form1.NotifyIcon1_DoubleClick();
+        var showItem = new ToolStripMenuItem("Show");
+        showItem.Click += (s, e) => form1.ShowApp();
 
         /*var hideItem = new ToolStripMenuItem("Ukryj");
         hideItem.Click += (s, e) => HideWindow();
@@ -24,8 +23,6 @@ internal class NotifyIconClass
         //menu.Items.Add(exitItem);
 
         form1.notifyIcon1.ContextMenuStrip = menu;
-        ///
+
     }
-
-
 }

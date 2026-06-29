@@ -82,7 +82,7 @@
             Start.TabIndex = 14;
             Start.Text = "Start";
             Start.UseVisualStyleBackColor = true;
-            Start.Click += Start_Click;
+            Start.Click += Start_Move;
             // 
             // SimpleMouseMoverUC
             // 
