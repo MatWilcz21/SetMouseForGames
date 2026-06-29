@@ -2,12 +2,11 @@
 
 public partial class SimpleMouseMoverUC : UserControl
 {
-    bool autoclick;
 
     int pxDistanceToTravel = 4;
 
-    private CancellationTokenSource? cts;
-    private Task? clickTask;
+    CancellationTokenSource? cts;
+    Task? moveTask;
 
     public SimpleMouseMoverUC()
     {
@@ -17,13 +16,13 @@ public partial class SimpleMouseMoverUC : UserControl
 
     private void Start_Move(object sender, EventArgs e)
     {
-        if (clickTask is { IsCompleted: false })
+        if (moveTask is { IsCompleted: false })
             return;
 
         cts?.Cancel();
         cts = new CancellationTokenSource();
 
-        clickTask = MoveAsync(cts.Token);
+        moveTask = MoveAsync(cts.Token);
     }
 
     private void Stop_Click(object sender, EventArgs e)
