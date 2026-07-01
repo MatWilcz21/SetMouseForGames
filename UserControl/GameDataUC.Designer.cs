@@ -59,7 +59,7 @@
             // MainSpinValueHolder
             // 
             MainSpinValueHolder.AutoSize = true;
-            MainSpinValueHolder.Location = new Point(122, 19);
+            MainSpinValueHolder.Location = new Point(139, 19);
             MainSpinValueHolder.Name = "MainSpinValueHolder";
             MainSpinValueHolder.Size = new Size(13, 15);
             MainSpinValueHolder.TabIndex = 24;
@@ -109,7 +109,7 @@
             // 
             ResetScratchpad.Location = new Point(3, 13);
             ResetScratchpad.Name = "ResetScratchpad";
-            ResetScratchpad.Size = new Size(113, 27);
+            ResetScratchpad.Size = new Size(130, 27);
             ResetScratchpad.TabIndex = 27;
             ResetScratchpad.Text = "Reset scratchpad";
             ResetScratchpad.UseVisualStyleBackColor = true;

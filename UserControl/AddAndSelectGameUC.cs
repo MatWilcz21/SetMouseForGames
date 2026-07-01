@@ -10,6 +10,9 @@ public partial class AddAndSelectGameUC : UserControl
     {
         InitializeComponent();
         SelectGameCombo.SelectedIndexChanged += SelectedGameFromComboChanged;
+
+        CreateNewGameButton.Text = LocalizationDictionary.GetLocalization(LocalizationDictionary.LangString.SelectGame_AddGame);
+        DeleteGameFromList.Text = LocalizationDictionary.GetLocalization(LocalizationDictionary.LangString.SelectGame_DeleteSelectedGame);
     }
 
     private void AddAndSelectGameUC_Load(object sender, EventArgs e)
@@ -53,6 +56,6 @@ public partial class AddAndSelectGameUC : UserControl
 
     internal void SetGameNameLabel(string gameName)
     {
-        SelectedGameNameLabel.Text = $"Selected game profile: {gameName}";
+        SelectedGameNameLabel.Text = $"{LocalizationDictionary.GetLocalization(LocalizationDictionary.LangString.SelectGame_SelectedGameProfile)}: {gameName}";
     }
 }

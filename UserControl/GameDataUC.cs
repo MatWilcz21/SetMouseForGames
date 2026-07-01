@@ -8,6 +8,7 @@ public partial class GameDataUC : UserControl
     public GameDataUC()
     {
         InitializeComponent();
+        ResetScratchpad.Text = LocalizationDictionary.GetLocalization(LocalizationDictionary.LangString.Scratchpad_ResetScratchpad);
     }
 
     private void PasteValueToFirstPersonAimPx_Click(object sender, EventArgs e)

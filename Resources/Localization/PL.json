@@ -1,0 +1,16 @@
+﻿{
+  "NotifyIcon_Show": "Pokaż",
+  "NotifyIcon_Hide": "b",
+  "SelectGame_SelectedGameProfile": "Wybrany profil gry",
+  "SelectGame_AddGame": "Dodaj grę",
+  "SelectGame_DeleteSelectedGame": "Usuń zaznaczoną grę",
+  "MouseInfo_MouseDPI": "DPI myszy",
+  "MouseInfo_Update": "Aktualizuj",
+
+  "MouseInfo_MouseSpeed": "Prędkość",
+  "MouseInfo_MouseEnhancedPrecision": "Ulepszona precyzja",
+  "MouseInfo_MouseScrollSpeed": "Prędkość Scrolla",
+  "MouseInfo_MouseDriverDPI": "DPI sterownika",
+
+  "Scratchpad_ResetScratchpad": "Resetuj scratchpad"
+}

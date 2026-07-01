@@ -9,6 +9,7 @@ public partial class Form1 : Form
 
     public Form1()
     {
+        LocalizationDictionary.CreteLocalizationDictionary("PL");
         mainLogic = new MainLogic(this);
         mainLogic.WindowsMouseSettings = new WindowsMouseSettings(this);
         InitializeComponent();

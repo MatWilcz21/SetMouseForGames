@@ -8,7 +8,7 @@ internal class NotifyIconClass
 
         var menu = new ContextMenuStrip();
 
-        var showItem = new ToolStripMenuItem("Show");
+        var showItem = new ToolStripMenuItem(LocalizationDictionary.GetLocalization(LocalizationDictionary.LangString.NotifyIcon_Show));
         showItem.Click += (s, e) => form1.ShowApp();
 
         /*var hideItem = new ToolStripMenuItem("Ukryj");
