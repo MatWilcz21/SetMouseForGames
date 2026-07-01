@@ -40,7 +40,7 @@ public partial class Form1 : Form
         }
     }
 
-    /*protected override void WndProc(ref Message m)
+    /*protected override void WndProc(ref Message m) //TO_DO to jest potrzebne do wykrywania inputów
     {
         const int WM_HOTKEY = 0x0312;
 
@@ -54,7 +54,7 @@ public partial class Form1 : Form
         base.WndProc(ref m);
     }*/
 
-    protected override void WndProc(ref Message m)
+    protected override void WndProc(ref Message m) //TO_DO to jest potrzebne do wykrywania minimalizacji okienka
     {
         const int WM_SYSCOMMAND = 0x0112;
         const int SC_MINIMIZE = 0xF020;
