@@ -34,6 +34,7 @@ internal class CheckMousePosition
     Task? checkMouseTask;
 
     public event Action MouseMovedEvent;
+    public event Action MouseNotMovedForLongTimeEvent;
 
     Point lastMousePosition;
     internal Point GetLastMousePosition() => lastMousePosition;
@@ -43,7 +44,10 @@ internal class CheckMousePosition
 
     DateTime lastMouseMove;
     internal DateTime GetLastMouseMove() => lastMouseMove;
-    internal int GetLastMouseMoveInterval() => (int)(DateTime.Now - lastMouseMove).TotalMilliseconds;
+    internal int GetLastMouseMoveIntervalMs() => (int)(DateTime.Now - lastMouseMove).TotalMilliseconds;
+
+    int idleTime = 1000 * 5;
+    internal void SetIdleTimeMs(int timeMs) => idleTime = timeMs;
 
     void StartCheckingMousePosition()
     {
@@ -58,8 +62,14 @@ internal class CheckMousePosition
 
     async Task CheckMousePositionAsync(CancellationToken token)
     {
+
         while (!token.IsCancellationRequested)
         {
+
+            if (GetLastMouseMoveIntervalMs() > idleTime)
+                MouseNotMovedForLongTimeEvent?.Invoke();
+
+
             await Task.Delay(checkMouseInterval, token);
             GetCursorPos(out Point mouseNow);
 

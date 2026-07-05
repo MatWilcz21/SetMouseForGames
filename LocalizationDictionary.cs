@@ -38,10 +38,9 @@ internal class LocalizationDictionary
         return localizationDictionary[hardcodedString];
     }
 
-    internal static void CreteLocalizationDictionary(string langFileName)
-    {
-        CreteLocalizationDictionaryAsync(langFileName).GetAwaiter().GetResult();
-    }
+    internal static void CreteLocalizationDictionary(string langFileName) =>
+        Task.Run(async () => await CreteLocalizationDictionaryAsync(langFileName)).GetAwaiter().GetResult();
+
 
     static async Task CreteLocalizationDictionaryAsync(string langFileName)
     {

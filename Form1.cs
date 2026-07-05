@@ -7,6 +7,10 @@ public partial class Form1 : Form
 
     NotifyIconClass notifyIcon1X;
 
+    ///// <summary>
+    //CheckMousePosition checkMousePosition1X;
+    ///// </summary>
+
     public Form1()
     {
         LocalizationDictionary.CreteLocalizationDictionary("PL");
@@ -21,6 +25,9 @@ public partial class Form1 : Form
         new LoadAppDataX(mainLogic);
         mouseInfouc1.UpdateMouseInfoLabel();
         notifyIcon1X = new NotifyIconClass(this);
+
+        //checkMousePosition1X = CheckMousePosition.CheckMousePositionx;
+        //checkMousePosition1X.MouseNotMovedForLongTimeEvent += SSS;
     }
 
     void InitOtherForms()
@@ -29,6 +36,12 @@ public partial class Form1 : Form
         mouseInfouc1.form1 = this;
         gameDatauc1.Form1 = this;
     }
+
+
+    //void SSS()
+    //{
+    //    MessageBox.Show("za d³ugo nie ruszasz myszk¹");
+    //}
 
     protected override void OnHandleCreated(EventArgs e)
     {
@@ -40,8 +53,11 @@ public partial class Form1 : Form
         }
     }
 
-    /*protected override void WndProc(ref Message m) //TO_DO to jest potrzebne do wykrywania inputów
+    protected override void WndProc(ref Message m)
     {
+
+        #region HOTKEY
+
         const int WM_HOTKEY = 0x0312;
 
         if (m.Msg == WM_HOTKEY)
@@ -51,14 +67,11 @@ public partial class Form1 : Form
             mainLogic.Dosmth((HotKeyEnum)id);
         }
 
-        base.WndProc(ref m);
-    }*/
+        #endregion
+        #region MINIMIZE
 
-    protected override void WndProc(ref Message m) //TO_DO to jest potrzebne do wykrywania minimalizacji okienka
-    {
         const int WM_SYSCOMMAND = 0x0112;
         const int SC_MINIMIZE = 0xF020;
-
         if (m.Msg == WM_SYSCOMMAND && (m.WParam.ToInt32() & 0xFFF0) == SC_MINIMIZE)
         {
             notifyIcon1.BalloonTipText = "aaaa";
@@ -67,6 +80,7 @@ public partial class Form1 : Form
             notifyIcon1.Icon = SystemIcons.Application;
             return;
         }
+        #endregion
 
         base.WndProc(ref m);
     }
